@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoList from './TodoList';
+import TodoList from './components/TodoList';
 
 
 class Layout extends Component {
@@ -41,8 +41,7 @@ render() {
                         </div>
             </div>
                   <div className="card-footer">
-                  <button onclick="myAddFunction()">Add</button>
-                  <button onclick="myEditFunction()">Edit/View</button>
+                  <button className = "add-todo" type="submit" onclick={this.handleClick}>Add</button>
                   </div>
             
             </div>
@@ -61,11 +60,11 @@ render() {
                     </li>
 
                     <li>
-                    <input type="checkbox" id="listitem" name="listitem"/>Listitem 1 is here<button></button>
+                    <input type="checkbox" id="listitem" name="listitem"/>Listitem 2 is here<button></button>
                       </li>
 
                       <li>
-                      <input type="checkbox" id="listitem" name="listitem"/>Listitem 1 is here<button></button>
+                      <input type="checkbox" id="listitem" name="listitem"/>Listitem 3 is here<button></button>
                     </li>
                   <p><TodoList items={this.state.items} />   </p>
                  </ul>

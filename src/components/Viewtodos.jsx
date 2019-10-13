@@ -8,7 +8,7 @@ import TodoList from './components/TodoList';
 
         }
 
-        //have to change the part below to match req with description from practice folder
+        //have to change the part below to match req with "description" from practice folder
 
     
     

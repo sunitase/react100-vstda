@@ -13,31 +13,45 @@ class App extends Component {
       this.state = { 
           items: []
       }; 
-     this.addItem = this.addItem.bind(this);   
+     this.addItem = this.addItem.bind(this);
+     this.deleteItem = this.deleteItem.bind(this); 
+    
   }
   
-addItem(newAdd) {
+    addItem(newAdd) {
       let items = this.state.items;
-
       items.concat({newAdd});
       this.setState({items});
-      console.log(items, newAdd);
+      console.log(newAdd);  
   }
 
-deleteItem(){
+  
+  updateItem(){
 
-};
+  };
+
+deleteItem(){
+    let statedel = this.statedel.items.filter(todo => todo.id !== deleteTodo.id)
+    this.setState({ items: statedel });
+}; 
+
 
   render() { 
     return (  
    <div className='container'>
      <div className='row'>
       <AddTodo addItem={this.addItem}/>
-     <TodoList items={this.state.items}/>
+     <TodoList newAdd={this.state.newAdd}/>
    </div>
    </div>
     );
   }
 }
 
+
+/*example to check on later ---- const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+);*/
 export default App;

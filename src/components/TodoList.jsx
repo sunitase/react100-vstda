@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 //import AddTodo from './components/AddTodo'
 //import App from './App'
 
-
-//is this where I will set condition for priority?
+/*createTasks(item) {
+  return <li onClick={() => this.delete(item.key)} 
+              key={item.key}>{item.text}</li>
+} */
 
 class TodoList extends Component {
 

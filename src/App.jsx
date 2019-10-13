@@ -22,7 +22,7 @@ class App extends Component {
       let items = this.state.items;
       items.concat({newAdd});
       this.setState({items});
-      console.log(newAdd);  
+      console.log(newAdd);   
   }
 
   

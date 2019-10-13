@@ -25,7 +25,7 @@ class App extends Component {
       console.log(newAdd);   
   }
 
-  
+
   updateItem(){
 
   };

@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 //import AddTodo from './components/AddTodo'
 //import App from './App'
 
-/*createTasks(item) {
-  return <li onClick={() => this.delete(item.key)} 
-              key={item.key}>{item.text}</li>
+/*example to check on later ---- const todoItems = todos.map((todo) =>
+  <li key={items.id}>
+    {items.todo}
+  </li>
+);*/
+
+/*createTasks(todo) {
+  return <li onClick={() => this.delete(todo.id)} 
+              id={todo.id}>{todo.}</li>
 } */
 
 class TodoList extends Component {

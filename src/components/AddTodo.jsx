@@ -17,7 +17,7 @@ class AddTodo extends Component {
     }
 
     handleChange(e) {
-      this.setState({[e.target.name]: e.target.value}) 
+      this.setState({[e.target.name]: e.target.value});
     };
 
     handleClick(){
@@ -45,7 +45,7 @@ class AddTodo extends Component {
                                   <div>
                                   <h4 className="card-title"></h4>
                                   <h5 className="card-text">Add a new task</h5>
-                                  <textarea className="create-todo-text" name="todo" value={this.state.todo} onChange={this.handleChange}></textarea>
+                                  <textarea className="create-todo-text" name="todo" type="text" value={this.state.todo} onChange={this.handleChange}></textarea>
                                   </div>
                   
                                 

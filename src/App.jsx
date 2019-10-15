@@ -16,10 +16,13 @@ class App extends Component {
       }; 
      this.addItem = this.addItem.bind(this);
      this.deleteItem = this.deleteItem.bind(this); 
+     //this.updateItem = this.updateItem.bind(this);
+     //this.editItem = this.editItem.bind(this);
     
   }
   
-  //check addItem var name and function name cannot be same
+  //Use better variable names everywhere. Work on one part at a time
+  //for mapping will have to mount component first... and then map and call later
 
     addItem(newAdd) {
       let items = this.state.items;
@@ -28,11 +31,7 @@ class App extends Component {
       console.log(newAdd);  
       return items;    
   }
-
-
-  updateItem(){
-
-  };
+  
 
 deleteItem(){
     let statedel = this.statedel.items.filter(todo => todo.id !== deleteTodo.id)
@@ -45,8 +44,9 @@ deleteItem(){
    <div className='container'>
      <div className='row'>
       <AddTodo addItem={this.addItem}/>
+
      <TodoList items={this.state.items}/>
-     <UpdateTodo/>
+     <UpdateTodo />
    </div>
    </div>
     );

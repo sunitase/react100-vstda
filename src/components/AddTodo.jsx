@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 
+//Bind and then This can be used for deleting <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+
+
 class AddTodo extends Component {
     constructor(props){
         super(props);

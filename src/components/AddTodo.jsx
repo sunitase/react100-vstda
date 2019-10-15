@@ -15,8 +15,8 @@ class AddTodo extends Component {
         }; 
   
         //this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.handleClick= this.handleClick.bind(this);
-        this.handleChange= this.handleChange.bind(this)    
+        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this)    
     }
 
     handleChange(e) {
@@ -24,12 +24,16 @@ class AddTodo extends Component {
     };
 
     handleClick(){
+
       this.setState({todo: this.state.todo,
       priority: this.state.priority,
       id: Date.now()
     });
 
     this.props.addItem(this.state);
+  
+    console.log("added item on click");
+    
   }
 
   
@@ -64,9 +68,7 @@ class AddTodo extends Component {
                                 <div className="card-footer bg-info text-white">
                                 <button className = "add-todo" onClick={this.handleClick}>Add</button>
                                 </div>
-                                
                           
-
                             </div>
                         
             );

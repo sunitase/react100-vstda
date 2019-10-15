@@ -16,19 +16,23 @@ class App extends Component {
       }; 
      this.addItem = this.addItem.bind(this);
      this.deleteItem = this.deleteItem.bind(this); 
+    
+
      //this.updateItem = this.updateItem.bind(this);
      //this.editItem = this.editItem.bind(this);
     
   }
   
-  //Use better variable names everywhere. Work on one part at a time
   //for mapping will have to mount component first... and then map and call later
 
     addItem(newAdd) {
       let items = this.state.items;
       items.concat({newAdd});
       this.setState({items});
-      console.log(newAdd);  
+      console.log("TodoItem is:"+ newAdd.todo);  
+      console.log("id is:"+ newAdd.id);
+      console.log("Priority is:" + newAdd.priority);
+      console.log(items)
       return items;    
   }
   
@@ -43,9 +47,10 @@ deleteItem(){
     return (  
    <div className='container'>
      <div className='row'>
+
       <AddTodo addItem={this.addItem}/>
 
-     <TodoList items={this.state.items}/>
+     <TodoList newAdd={this.state.newAdd}/>
      <UpdateTodo />
    </div>
    </div>

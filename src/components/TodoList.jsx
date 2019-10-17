@@ -1,38 +1,35 @@
 import React, { Component } from 'react';
-//import AddTodoItems from './components/AddTodoItems'
+import ListItem from './ListItem'
 //import App from './App'
 
 
 
 class TodoList extends Component {
+  constructor(props){
+    super(props);
+    console.log('todolist', props);
+  }
 
   render() {
+
+    var output = this.props.items.map(todohere => 
+      <ListItem
+      key={todohere.newAdd.id}
+      todohere={todohere}
+      />);
+  
+
     return (
         <div className='card mx-auto col-8'>
-        <div className="card-body">
+          <div className="card-body">
             <div className="card-header bg-info text-white">
               View Todos
             </div>
-              
-              <h4 className="card-title">Todo List</h4>
-              <p className="card-text">Todo items</p>
-              <div>
-                <li>
-                <input type="checkbox" id="listitem" name="listitem"/>Listitem 1 is here<button><i className="far fa-edit" ></i></button><button><i className="far fa-trash-alt"></i></button>
-                </li>
-                <li>
-                <input type="checkbox" id="listitem" name="listitem"/>Listitem 2 is here<button><i className="far fa-edit"></i></button><button><i className="far fa-trash-alt"></i></button>
-                  </li>
-
-                  <li>
-                  <input type="checkbox" id="listitem" name="listitem"/>Listitem 3 is here<button><i className="far fa-edit"></i></button><button><i className="far fa-trash-alt"></i></button>
-                </li>
-              
-                
-             </div>
-                  <div className="card-footer bg-info text-white">
-                  List of Added Todo items
-                  </div>
+            <div>
+              <ul>
+              {output}
+              </ul>
+            </div>
           </div> 
         </div>
 

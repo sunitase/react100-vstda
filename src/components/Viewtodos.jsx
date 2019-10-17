@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoList from './components/TodoList';
+import TodoList from './TodoList';
 
 //this is just 1st view of list items from here we goto editpage which is UpdateTodo
 

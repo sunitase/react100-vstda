@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddTodoItems from './components/AddTodoItems';
 
 
 //Bind and then This can be used for deleting <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
@@ -8,7 +9,7 @@ class AddTodo extends Component {
     constructor(props){
         super(props);
   
-        this.state = { 
+        this.state = {
             priority:'',
             todo: '',
             id: Date.now()
@@ -23,21 +24,11 @@ class AddTodo extends Component {
       this.setState({[e.target.name]: e.target.value});
     };
 
-    handleClick(){
-
-      this.setState({todo: this.state.todo,
-      priority: this.state.priority,
-      id: Date.now()
-    });
-
+    handleClick(e){ 
+     this.setState({todo: this.state.todo, priority: this.state.priority, id: Date.now()});
     this.props.addItem(this.state);
-  
-    console.log("added item on click");
-    
+    console.log("added item on click");   
   }
-
-  
-
 
   render() {
     return (
@@ -68,6 +59,8 @@ class AddTodo extends Component {
                                 <div className="card-footer bg-info text-white">
                                 <button className = "add-todo" onClick={this.handleClick}>Add</button>
                                 </div>
+
+                                <AddTodoItems entries={this.state.items}/>
                           
                             </div>
                         

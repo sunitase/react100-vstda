@@ -15,32 +15,28 @@ class App extends Component {
           items: []
       }; 
      this.addItem = this.addItem.bind(this);
-     this.deleteItem = this.deleteItem.bind(this); 
-    
-
-     //this.updateItem = this.updateItem.bind(this);
-     //this.editItem = this.editItem.bind(this);
-    
+     //this.deleteItem = this.deleteItem.bind(this); 
   }
   
   //for mapping will have to mount component first... and then map and call later
 
-    addItem(newAdd) {
+   addItem(newAdd) {
       let items = this.state.items;
-      items.concat({newAdd});
+     items = items.concat({newAdd});
       this.setState({items});
       console.log("TodoItem is:"+ newAdd.todo);  
       console.log("id is:"+ newAdd.id);
       console.log("Priority is:" + newAdd.priority);
-      console.log(items)
+      //console.log(items)
       return items;    
   }
+
   
 
-deleteItem(){
-    let statedel = this.statedel.items.filter(todo => todo.id !== deleteTodo.id)
-    this.setState({ items: statedel });
-}; 
+/*deleteItem = id => {
+    let deleteItems = this.state.items.filter(todo => {
+      return todo.id !== id
+    this.setState({ items: deleteItems, })} */
 
 
   render() { 
@@ -49,15 +45,13 @@ deleteItem(){
      <div className='row'>
 
       <AddTodo addItem={this.addItem}/>
-
-     <TodoList newAdd={this.state.newAdd}/>
+     <TodoList items={this.state.items}/>
      <UpdateTodo />
    </div>
    </div>
     );
   }
 }
-
 
 /*example to check on later ---- const todoItems = todos.map((todo) =>
   <li key={todo.id}>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import TodoList from './TodoList';
 
-//this is just 1st view of list items from here we goto editpage which is UpdateTodo
+//not used anymore
+//ListItem it is- this is just 1st view of list items from here we goto editpage which is UpdateTodo
 
     
     class Viewtodos extends Component {

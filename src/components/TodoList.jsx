@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem'
-//import App from './App'
-
-
 
 class TodoList extends Component {
   constructor(props){
@@ -13,11 +10,11 @@ class TodoList extends Component {
   render() {
 
     var output = this.props.items.map(todohere => 
-      <ListItem
+      <ListItem 
       key={todohere.newAdd.id}
-      todohere={todohere}
+      todohere={todohere} deleteItem={this.props.deleteItem}
       />);
-  
+
 
     return (
         <div className='card mx-auto col-8'>

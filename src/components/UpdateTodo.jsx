@@ -9,6 +9,9 @@ class UpdateTodo extends Component {
     constructor(props){
         super(props);
 
+        //this.handleClick = this.handleClick.bind(this);
+        //this.handleNewChange = this.handleNewChange.bind(this)    
+
     }
 
 
@@ -24,7 +27,7 @@ class UpdateTodo extends Component {
                 <h4 className="card-title"></h4>
                 <h5 className="card-text">Description</h5>
                         <textarea className="update-todo-text" name="updatetext" type="text" rows="3" cols="20"
-                         onChange={this.handleChange}></textarea>
+                         onChange={this.handleNewChange}></textarea>
                   
               </div>
 

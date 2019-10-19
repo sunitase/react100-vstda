@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
-//import ViewTodos from '/components/ViewTodos';
 import UpdateTodo from './components/UpdateTodo';
 
 
@@ -15,37 +14,36 @@ class App extends Component {
           items: []
       }; 
      this.addItem = this.addItem.bind(this);
-     //this.deleteItem = this.deleteItem.bind(this); 
+     this.deleteItem = this.deleteItem.bind(this); 
   }
   
-  //for mapping will have to mount component first... and then map and call later
-
    addItem(newAdd) {
       let items = this.state.items;
      items = items.concat({newAdd});
       this.setState({items});
-      console.log("TodoItem is:"+ newAdd.todo);  
-      console.log("id is:"+ newAdd.id);
-      console.log("Priority is:" + newAdd.priority);
+      console.log("TodoItem is:"+ newAdd.todo);   console.log("id is:"+ newAdd.id); console.log("Priority is:" + newAdd.priority);
       //console.log(items)
       return items;    
   }
-
   
+  deleteItem(key) {
+    let filteredItems = this.state.items.filter(todo => {
+      return (todo.key !== key);
+    });
+    this.setState({
+      items: filteredItems
+    });
+    console.log(key)
+  }
 
-/*deleteItem = id => {
-    let deleteItems = this.state.items.filter(todo => {
-      return todo.id !== id
-    this.setState({ items: deleteItems, })} */
-
+//name="listitem" my path for display i.e output this.props.todohere.newAdd.todo
 
   render() { 
     return (  
    <div className='container'>
      <div className='row'>
-
       <AddTodo addItem={this.addItem}/>
-     <TodoList items={this.state.items}/>
+     <TodoList items={this.state.items} deleteItem= {this.deleteItem}/>
      <UpdateTodo />
    </div>
    </div>
@@ -53,9 +51,5 @@ class App extends Component {
   }
 }
 
-/*example to check on later ---- const todoItems = todos.map((todo) =>
-  <li key={todo.id}>
-    {todo.text}
-  </li>
-);*/
+
 export default App;

@@ -23,7 +23,7 @@ class AddTodo extends Component {
     handleClick(e){ 
      this.setState({todo: this.state.todo, priority: this.state.priority, id: Date.now()});
     this.props.addItem(this.state);
-    console.log("added item on click");   
+    // console.log("added item on click");   
   }
 
   render() {

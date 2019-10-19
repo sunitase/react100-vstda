@@ -4,7 +4,6 @@ import ListItem from './ListItem'
 class TodoList extends Component {
   constructor(props){
     super(props);
-    console.log('todolist', props);
   }
 
   render() {
@@ -12,7 +11,7 @@ class TodoList extends Component {
     var output = this.props.items.map(todohere => 
       <ListItem 
       key={todohere.newAdd.id}
-      todohere={todohere} deleteItem={this.props.deleteItem}
+      todohere={todohere} deleteItem={this.props.deleteItem} editItem={this.props.editItem}
       />);
 
 

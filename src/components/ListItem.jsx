@@ -11,7 +11,7 @@ function handlePriorityColor(priority){
 
 class ListItem extends Component {
     constructor(props){
-        super(props);p
+        super(props);
         this.state ={
             priority: this.props.priority
         }

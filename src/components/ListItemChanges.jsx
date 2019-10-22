@@ -39,7 +39,28 @@ render(){
             <i className="far fa-trash-alt"></i></button>
             </li>
         </div>
+
+        <div id="list-edit">
+             <p> Update Todos </p>
+            <input type="text" value={this.state.changedItem}
+            onChange={this.changeEditHandler}
+            onKeyDown={this.handleEditingDoneEnter}
+            />
+              
+             
+                                  <select className="update-todo-priority" name="priority" onChange={this.changeHandler}>
+                                    
+                                    <option className="select-priority" value="1">High</option>
+                                    <option className="select-priority" value="2">Medium</option>
+                                    <option className="select-priority" value="3">Low</option>
+                                    </select>
+            
+              <div>
+              <button className="save-todo" type="submit" value="submit" onClick={this.handleEditButton}>Save</button>
+              </div>
+        </div>
     </div>
+
         );
 
     }

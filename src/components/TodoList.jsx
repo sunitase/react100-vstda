@@ -11,12 +11,14 @@ class TodoList extends Component {
     var output = this.props.items.map(todohere => 
       <ListItem 
       key={todohere.newAdd.id}
-      todohere={todohere} deleteItem={this.props.deleteItem} editItem={this.props.editItem}
+            todohere={todohere} 
+            deleteItem={this.props.deleteItem} 
+            editItem={this.props.editItem}
       />);
 
 
     return (
-        <div className='card mx-auto col-8'>
+        <div className='card mx-auto col-4'>
           <div className="card-body">
             <div className="card-header bg-info text-white">
               View Todos

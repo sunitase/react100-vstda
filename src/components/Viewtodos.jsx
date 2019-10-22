@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 
 //not used anymore
 //ListItem it is- this is just 1st view of list items from here we goto editpage which is UpdateTodo
-
+//Done in ListItem and TodoList Even UpdateTodo just there right now. Not sure if I should just change in same page or display in new page
     
     class Viewtodos extends Component {
         constructor(props){

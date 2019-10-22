@@ -11,6 +11,7 @@
     "test": "npm run build && mocha test/.setup.js test/*.spec.js --exit"
   },
   "dependencies": {
+    "ajv-errors": "^1.0.1",
     "axios": "^0.16.1",
     "bluebird": "^3.5.0",
     "chai": "^3.5.0",
@@ -52,7 +53,7 @@
     "react-addons-test-utils": "^15.6.0",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
-    "url-loader": "^1.1.1"
+    "url-loader": "^1.1.2"
   },
   "repository": {
     "type": "git",

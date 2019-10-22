@@ -16,7 +16,7 @@ class App extends Component {
       }; 
      this.addItem = this.addItem.bind(this);
      this.deleteItem = this.deleteItem.bind(this); 
-     this.editItem = this.editItem.bind(this);
+     this.saveItem = this.saveItem.bind(this);
   }
   
    addItem(newAdd) {
@@ -36,8 +36,8 @@ class App extends Component {
     // console.log(this.state.items);
   }
 
-  editItem(){
-    console.log(editinghere)
+  saveItem(){
+    console.log('FinalSave')
   }
 
 //name="listitem" my path for display i.e output this.props.todohere.newAdd.todo
@@ -47,8 +47,8 @@ class App extends Component {
    <div className='container'>
      <div className='row'>
       <AddTodo addItem={this.addItem}/>
-     <TodoList items={this.state.items} deleteItem= {this.deleteItem}/>
-     <UpdateTodo />
+     <TodoList items={this.state.items} deleteItem= {this.deleteItem} editItem= {this.editItem}/>
+     <UpdateTodo items={this.state.items} deleteItem= {this.deleteItem} editItem= {this.editItem} saveItem= {this.saveItem}/>
    </div>
    </div>
     );

@@ -16,7 +16,7 @@ class App extends Component {
       }; 
      this.addItem = this.addItem.bind(this);
      this.deleteItem = this.deleteItem.bind(this); 
-     this.saveItem = this.saveItem.bind(this);
+     //this.saveItem = this.saveItem.bind(this);
   }
   
    addItem(newAdd) {
@@ -34,10 +34,6 @@ class App extends Component {
       items: filteredItems
     });
     // console.log(this.state.items);
-  }
-
-  saveItem(){
-    console.log('FinalSave')
   }
 
 //name="listitem" my path for display i.e output this.props.todohere.newAdd.todo

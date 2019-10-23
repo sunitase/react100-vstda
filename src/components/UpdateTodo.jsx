@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListItem from './ListItem'
 
 
+
 class UpdateTodo extends Component {
 
     constructor(props){
@@ -32,8 +33,9 @@ class UpdateTodo extends Component {
               <div>
                 <h4 className="card-title"></h4>
                 <h5 className="card-text">Description</h5>
-                        <textarea className="update-todo-text" name="updatetext" type="text" rows="3" cols="20"
-                         onChange={this.handleNewChange}></textarea>
+                        <textarea className="description" name="description" type="text" rows="3" cols="15"
+                        defaultValue={this.props.todohere}
+                         onChange={this.handleInitialEdit}></textarea>
                   
               </div>
 

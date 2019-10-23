@@ -24,8 +24,8 @@ class ListItem extends Component {
     handleInitialEdit() {
         this.setState({isEditing: true});
         console.log('EditButton is clicked. Take me to editing here or Updatepage')
-        //this.setState({ changedItem: this.props.item.item});
-        //this.setState({ changedItem: this.props.todohere.newAdd});
+        this.setState({ changedItem: this.props.todohere.newAdd.todo});
+        //path for delete for reference: this.props.todohere.newAdd.id
         
     }
     
@@ -37,6 +37,7 @@ render(){
         <div id='list-group-item'>
             <li className={`list-group-item-${handlePriorityColor(this.props.todohere.newAdd.priority)} clearfix`}
             key={this.props.todohere.id}>
+
             <input type="checkbox" id="listitem" name="listitem"/>{this.props.todohere.newAdd.todo}
             <button className="edit-todo" onClick={this.handleInitialEdit}><i className="far fa-edit" ></i></button>
             <button className = "delete-todo" onClick={()=>{this.props.deleteItem(this.props.todohere.newAdd.id)}}>

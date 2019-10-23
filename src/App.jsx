@@ -37,6 +37,7 @@ class App extends Component {
   }
 
 //name="listitem" my path for display i.e output this.props.todohere.newAdd.todo
+//<UpdateTodo items={this.state.items} deleteItem= {this.deleteItem} editItem= {this.editItem} saveItem= {this.saveItem}/>
 
   render() { 
     return (  
@@ -44,7 +45,6 @@ class App extends Component {
      <div className='row'>
       <AddTodo addItem={this.addItem}/>
      <TodoList items={this.state.items} deleteItem= {this.deleteItem} editItem= {this.editItem}/>
-     <UpdateTodo items={this.state.items} deleteItem= {this.deleteItem} editItem= {this.editItem} saveItem= {this.saveItem}/>
    </div>
    </div>
     );

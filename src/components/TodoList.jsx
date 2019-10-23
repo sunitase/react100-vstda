@@ -18,7 +18,7 @@ class TodoList extends Component {
 
 
     return (
-        <div className='card mx-auto col-4'>
+        <div className='card mx-auto col-6'>
           <div className="card-body">
             <div className="card-header bg-info text-white">
               View Todos

@@ -29,7 +29,7 @@ class AddTodo extends Component {
   render() {
     return (
 
-                        <div className='card  mx-auto col-3'>
+                        <div className='card  mx-auto col-5'>
             
                                 <div className="card-body">
                                     <div className="card-header bg-info text-white">

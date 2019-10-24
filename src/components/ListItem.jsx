@@ -14,19 +14,18 @@ class ListItem extends Component {
     constructor(props){
         super(props);
         this.state ={
-           // priority: this.props.priority,
-           priority: 1,
+            changedItem: '',
+          priority: 1,
+           isEditing: false,
         }
-        this.handleInitialEdit = this.handleInitialEdit.bind(this);    
+        this.handleInitialEdit = this.handleInitialEdit.bind(this);  
     }
 
   
     handleInitialEdit() {
         this.setState({isEditing: true});
-        console.log('EditButton is clicked. Take me to editing here or Updatepage')
         this.setState({ changedItem: this.props.todohere.newAdd.todo});
         //path for delete for reference: this.props.todohere.newAdd.id
-        
     }
     
 render(){

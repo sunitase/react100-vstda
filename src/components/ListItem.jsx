@@ -14,26 +14,67 @@ class ListItem extends Component {
     constructor(props){
         super(props);
         this.state ={
-            changedItem: '',
-          priority: 1,
+           changedItem: '',
+           priority: 1,
            isEditing: false,
         }
         this.handleInitialEdit = this.handleInitialEdit.bind(this);  
+        this.handleEditingDoneButton = this.handleEditingDoneButton.bind(this);
+        this.handleEditingChange = this.handleEditingChange.bind(this);
+        this.handleEditingDoneEnter = this.handleEditingDoneEnter.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+    }
+
+    componentDidMount(){
+        console.log('component did mount')
+        this.setState({changedText: this.props.todohere.newAdd.todo})
     }
 
   
     handleInitialEdit() {
         this.setState({isEditing: true});
         this.setState({ changedItem: this.props.todohere.newAdd.todo});
-        //path for delete for reference: this.props.todohere.newAdd.id
+        //path for delete for reference: this.props.todohere.newAdd.id 
     }
+
+    changehandler(event){
+        this.setState({[event.target.name]:event.target.value})
+    }
+
+    handleEditingDoneButton () {
+        this.setState({ isEditing: false });
+    }
+
+    handleEditingDoneEnter (event) {
+      console.log('Editing is done')
+      if(event.keyCode === 13)
+        { //Submit code is 13
+            this.setState({isEditing: false})
+         }
+    }
+
+    handleEditingChange(event){
+    //changedText
+var _changedText = event.target.value;
+this.setState({changedText: _changedText});
+
+    }
+
     
 render(){
-    const { isEditing } = this.state;
+    var viewStyle = {};
+    var editStyle = {};
+
+    if(this.state.isEditing) {
+        viewStyle.display = "none"
+    } else{
+        editStyle.display = "none"
+    }
+
     return(
 <div>
     <div className="todo-item" value="this.state.priority">
-        <div id='list-group-item'>
+        <div id="list-group-item" style={viewStyle} >
             <li className={`list-group-item-${handlePriorityColor(this.props.todohere.newAdd.priority)} clearfix`}
             key={this.props.todohere.id}>
 
@@ -46,9 +87,12 @@ render(){
     </div>
 
     
-    <div id="list-edit">
+    <div id="list-edit" style={editStyle}>
         <p> Update Todos </p>
-        <input type="text" value={this.state.changedItem} onChange={this.changeEditHandler}/>
+        <input type="text" value={this.state.changedText} 
+         onChange={this.handleEditingChange}
+         onKeyDown={this.handleEditingDoneEnter}
+        />
  
         <select className="update-todo-priority" name="priority" onChange={this.changeHandler}>                   
             <option className="select-priority" value="1">High</option>

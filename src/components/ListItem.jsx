@@ -78,6 +78,7 @@ render(){
         <div id="list-group-item" style={viewStyle} >
             <li className={`list-group-item-${handlePriorityColor(this.props.todohere.newAdd.priority)} clearfix`}
             key={this.props.todohere.id}>
+            <p>{this.state.changedItem}</p>
 
             <input type="checkbox" id="listitem" name="listitem"/>{this.props.todohere.newAdd.todo}
             <button className="edit-todo" onClick={this.handleInitialEdit}><i className="far fa-edit" ></i></button>

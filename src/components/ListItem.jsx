@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-//edit happens not updating after changes yet Oct 24 11:26 am
+//background needs to change on update, checkbox function, completed part needs taken care of
+//Oct 24 12:00pm 
 
 function handlePriorityColor(priority){
     if (priority==1){
@@ -28,7 +29,6 @@ class ListItem extends Component {
     }
 
     componentDidMount(){
-        console.log('component did mount')
         this.setState({changedText: this.props.todohere.newAdd.todo})
     }
 
@@ -48,7 +48,7 @@ class ListItem extends Component {
     }
 
     handleEditingDoneEnter (event) {
-      console.log('Editing is done')
+      //Editing is done
       if(event.keyCode === 13)
         { //Submit code is 13
             this.setState({isEditing: false})
@@ -56,7 +56,6 @@ class ListItem extends Component {
     }
 
     handleEditingChange(event){
-    //changedText
         var changedText = event.target.value;
         this.setState({changedItem: changedText});
     }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+//edit happens not updating after changes yet Oct 24 11:26 am
+
 function handlePriorityColor(priority){
     if (priority==1){
         return 'success';}
@@ -37,7 +39,7 @@ class ListItem extends Component {
         //path for delete for reference: this.props.todohere.newAdd.id 
     }
 
-    changehandler(event){
+    changeHandler(event){
         this.setState({[event.target.name]:event.target.value})
     }
 
@@ -55,9 +57,8 @@ class ListItem extends Component {
 
     handleEditingChange(event){
     //changedText
-var _changedText = event.target.value;
-this.setState({changedText: _changedText});
-
+        var changedText = event.target.value;
+        this.setState({changedItem: changedText});
     }
 
     
@@ -89,7 +90,7 @@ render(){
     
     <div id="list-edit" style={editStyle}>
         <p> Update Todos </p>
-        <input type="text" value={this.state.changedText} 
+        <input type="text" value={this.state.changedItem} 
          onChange={this.handleEditingChange}
          onKeyDown={this.handleEditingDoneEnter}
         />

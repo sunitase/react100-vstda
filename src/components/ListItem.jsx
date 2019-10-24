@@ -20,12 +20,15 @@ class ListItem extends Component {
            changedItem: '',
            priority: 1,
            isEditing: false,
+           checked: false,
+           //done: false,
         }
         this.handleInitialEdit = this.handleInitialEdit.bind(this);  
         this.handleEditingDoneButton = this.handleEditingDoneButton.bind(this);
         this.handleEditingChange = this.handleEditingChange.bind(this);
         this.handleEditingDoneEnter = this.handleEditingDoneEnter.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
+        this.clickCheckHandle = this.clickCheckHandle.bind(this);
     }
 
     componentDidMount(){
@@ -40,6 +43,7 @@ class ListItem extends Component {
     }
 
     changeHandler(event){
+        //this is for priority as well
         this.setState({[event.target.name]:event.target.value})
     }
 
@@ -60,6 +64,12 @@ class ListItem extends Component {
         this.setState({changedItem: changedText});
     }
 
+   clickCheckHandle(){
+      this.setState(prevState => ({
+      checked: !prevState.checked
+          }));
+    } 
+
     
 render(){
     var viewStyle = {};
@@ -79,7 +89,9 @@ render(){
             key={this.props.todohere.id}>
             <p>{this.state.changedItem}</p>
 
-            <input type="checkbox" id="listitem" name="listitem"/>{this.props.todohere.newAdd.todo}
+            <input type="checkbox" id="listitem" name="listitem"
+            checked={this.state.checked} onClick={this.clickCheckHandle}
+            />{this.props.todohere.newAdd.todo}
             <button className="edit-todo" onClick={this.handleInitialEdit}><i className="far fa-edit" ></i></button>
             <button className = "delete-todo" onClick={()=>{this.props.deleteItem(this.props.todohere.newAdd.id)}}>
             <i className="far fa-trash-alt"></i></button>
@@ -90,7 +102,8 @@ render(){
     
     <div id="list-edit" style={editStyle}>
         <p> Update Todos </p>
-        <input type="text" value={this.state.changedItem} 
+        <input type="text" 
+         value={this.state.changedItem} 
          onChange={this.handleEditingChange}
          onKeyDown={this.handleEditingDoneEnter}
         />

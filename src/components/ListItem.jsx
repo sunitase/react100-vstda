@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-//background needs to change on update, checkbox function, completed part needs taken care of
-//Oct 24 12:00pm 
+//condition if statechecked then make changes not showing yet...
+//<p style={this.state.checked ? completedStyle : null}>{`${handlePriorityColortoo{this.state.changedItem} clearfix`</p>
 
 function handlePriorityColor(priority){
     if (priority==1){
@@ -11,6 +11,15 @@ function handlePriorityColor(priority){
      else if (priority==3){
             return 'danger';}
      }
+
+     function handlePriorityColortoo(changedItemPriority){
+        if (priority==1){
+            return 'success';}
+        else if (priority==2){
+            return 'warning';}
+         else if (priority==3){
+                return 'danger';}
+         }
 
    
 class ListItem extends Component {
@@ -42,10 +51,7 @@ class ListItem extends Component {
         //path for delete for reference: this.props.todohere.newAdd.id 
     }
 
-    changeHandler(event){
-        //this is for priority as well
-        this.setState({[event.target.name]:event.target.value})
-    }
+    
 
     handleEditingDoneButton () {
         this.setState({ isEditing: false });
@@ -61,7 +67,15 @@ class ListItem extends Component {
 
     handleEditingChange(event){
         var changedText = event.target.value;
+        varchangedPriority = event.target.value;
         this.setState({changedItem: changedText});
+    }
+
+    changeHandler(event){
+        //this is for priority 
+            var changedPriority = event.target.value;
+            this.setState({changedItemPriority: changedPriority})
+        this.setState({[event.target.name]:event.target.value})
     }
 
    clickCheckHandle(){
@@ -80,6 +94,12 @@ render(){
     } else{
         editStyle.display = "none"
     }
+    
+    const completedStyle = {    
+        fontStyle: "Bold",
+        color: "#8D9D90",
+        textDecoration: "line-through"
+    };     
 
     return(
 <div>
@@ -87,7 +107,7 @@ render(){
         <div id="list-group-item" style={viewStyle} >
             <li className={`list-group-item-${handlePriorityColor(this.props.todohere.newAdd.priority)} clearfix`}
             key={this.props.todohere.id}>
-            <p>{this.state.changedItem}</p>
+            <p style={this.state.checked ? completedStyle : null}>{this.state.changedItem}</p>
 
             <input type="checkbox" id="listitem" name="listitem"
             checked={this.state.checked} onClick={this.clickCheckHandle}
@@ -108,7 +128,7 @@ render(){
          onKeyDown={this.handleEditingDoneEnter}
         />
  
-        <select className="update-todo-priority" name="priority" onChange={this.changeHandler}>                   
+        <select className="update-todo-priority" name="priority" value={this.state.changedItemPriority} onChange={this.changeHandler}>                   
             <option className="select-priority" value="1">High</option>
             <option className="select-priority" value="2">Medium</option>
             <option className="select-priority" value="3">Low</option>
